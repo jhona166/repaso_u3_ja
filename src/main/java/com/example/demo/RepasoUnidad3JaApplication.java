@@ -1,9 +1,7 @@
 package com.example.demo;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -60,8 +58,8 @@ public class RepasoUnidad3JaApplication implements CommandLineRunner {
 		libro1.setNombre("Fisica Vectorial");
 		libro1.setEditorial("Pearson");
 		libros.add(libro1);
-
-		
+//
+//		
 		List<Autor> autores = new ArrayList<>();
 		Autor autor = new Autor();
 		autor.setNombre("Galindo");
@@ -75,6 +73,12 @@ public class RepasoUnidad3JaApplication implements CommandLineRunner {
 		this.iLibroService.crear(libro);
 		this.iLibroService.crear(libro1);
 		
+		//Busqueda de habitaciones
+		Libro libro4 = this.iLibroService.buscar(2);
+		System.out.println(libro4);
+		for (Autor bh :autores ) {
+			System.out.println(bh.getNombre());
+		}
 		
 	}
 

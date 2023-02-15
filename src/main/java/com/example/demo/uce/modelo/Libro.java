@@ -5,6 +5,7 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,7 +28,7 @@ public class Libro {
 	@Column(name="libr_editorial")
 	private String editorial;
 	
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinTable(
 	name="libro_autor",
 	joinColumns = @JoinColumn(name="liau_id_libro"),//PK
@@ -40,6 +41,10 @@ public class Libro {
 	
 	
 	
+	@Override
+	public String toString() {
+		return "Libro [id=" + id + ", nombre=" + nombre + ", editorial=" + editorial + ", autores=" + autores + "]";
+	}
 	public List<Autor> getAutores() {
 		return autores;
 	}

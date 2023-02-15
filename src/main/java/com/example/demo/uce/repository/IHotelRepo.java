@@ -7,5 +7,7 @@ public interface IHotelRepo {
 	public void actualizar(Hotel hotel);
 	public Hotel buscar(Integer id);
 	public void eliminar(Integer id);
+	public Hotel buscarLigero(Integer id);
+	
 
 }
