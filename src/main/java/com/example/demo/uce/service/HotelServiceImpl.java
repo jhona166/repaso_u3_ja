@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.uce.modelo.Hotel;
-import com.example.demo.uce.repository.IHotelRepository;
+import com.example.demo.uce.repository.IHotelRepo;
 @Service
 public class HotelServiceImpl implements IHotelService{
 	@Autowired
-	private IHotelRepository iHotelRepository;
+	private IHotelRepo iHotelRepository;
 	
 	@Override
 	public void crear(Hotel hotel) {

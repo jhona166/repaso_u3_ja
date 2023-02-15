@@ -10,7 +10,7 @@ import jakarta.transaction.Transactional;
 
 @Repository
 @Transactional
-public class HotelRepositoryImpl implements IHotelRepository{
+public class HotelRepoImpl implements IHotelRepo{
 	@PersistenceContext
 	private EntityManager entityManager;
 	@Override
