@@ -58,6 +58,34 @@ public class RepasoUnidad3JaApplication implements CommandLineRunner {
 //		estu2.setFechaNacimiento(LocalDateTime.of(2005, 03, 16, 13, 50));
 //		this.iEstudianteService.crear(estu2);
 		
+//		Estudiante estu3 = new Estudiante();
+//		estu3.setNombre("Carlos");
+//		estu3.setApellido("Ortiz");
+//		estu3.setCedula("1727501514");
+//		estu3.setCiudad("Quito");
+//		estu3.setPais("Ecuador");
+//		estu3.setGenero("M");
+//		estu3.setSalario(new BigDecimal(800));
+//		estu3.setHobby("Correr");
+//		estu3.setFechaNacimiento(LocalDateTime.of(2009, 03, 16, 13, 50));
+//		this.iEstudianteService.crear(estu3);
+//		
+//		Estudiante estu4 = new Estudiante();
+//		estu4.setNombre("Dayana");
+//		estu4.setApellido("Poluchi");
+//		estu4.setCedula("1727501516");
+//		estu4.setCiudad("Quito");
+//		estu4.setPais("Ecuador");
+//		estu4.setGenero("F");
+//		estu4.setSalario(new BigDecimal(800));
+//		estu4.setHobby("Dormir");
+//		estu4.setFechaNacimiento(LocalDateTime.of(2005, 03, 16, 13, 50));
+//		this.iEstudianteService.crear(estu4);
+		
+		
+		
+		
+		
 		System.out.println(this.iEstudianteService.buscarPorNombreQuery("Caroa"));
 		System.out.println("TypedQuery");
 		System.out.println(this.iEstudianteService.buscarPorNombreTypedQuery("Grace"));		
@@ -70,7 +98,13 @@ public class RepasoUnidad3JaApplication implements CommandLineRunner {
 		System.out.println("Combinado Native Typed Named");
 		System.out.println(this.iEstudianteService.buscarPorNombreNativeQueryTypedNamed("Lenin"));		
 		System.out.println("DTO");
-		System.out.println(this.iEstudianteService.buscarPorNombreQueryTypedDTO("Lenin"));	
+		System.out.println(this.iEstudianteService.buscarPorNombreTypedQueryDTO("Lenin"));	
+		System.out.println("QueryTypedCriteria");
+		System.out.println(this.iEstudianteService.buscarPorNombreQueryTypedCriteria("Lenin"));	
+		
+		System.out.println("QueryTypedCriteria");
+		System.out.println(this.iEstudianteService.buscarPorNombreCriteriaAndOr("Carlos","Caroa","F"));	
+		
 	}
 
 }

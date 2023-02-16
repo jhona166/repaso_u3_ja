@@ -1,5 +1,7 @@
 package com.example.demo.uce.repository;
 
+import java.util.List;
+
 import com.example.demo.uce.modelo.Estudiante;
 import com.example.demo.uce.modelo.DTO.EstudianteDTO;
 
@@ -17,6 +19,10 @@ public interface IEstudianteRepo {
 	//Combinado Native Typed Named 
 	public Estudiante buscarPorNombreNativeQueryTypedNamed(String nombre);
 	//DTO
-	public EstudianteDTO buscarPorNombreQueryTypedDTO(String nombre);
+	public EstudianteDTO buscarPorNombreTypedQueryDTO(String nombre);
+	//QueryTypedCritera
+	public Estudiante buscarPorNombreQueryTypedCriteria(String nombre);
+	//CriteriaAndOr
+	public List<Estudiante> buscarPorNombreCriteriaAndOr(String nombre,String apellido, String genero);
 	
 }
