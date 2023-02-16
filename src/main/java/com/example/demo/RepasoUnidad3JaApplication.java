@@ -1,85 +1,74 @@
 package com.example.demo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
+import org.hibernate.type.descriptor.java.LocalDateTimeJavaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.uce.modelo.Autor;
-import com.example.demo.uce.modelo.Libro;
-import com.example.demo.uce.service.IHotelService;
-import com.example.demo.uce.service.ILibroService;
+import com.example.demo.uce.modelo.Estudiante;
+import com.example.demo.uce.service.IEstudianteService;
+
+
 
 @SpringBootApplication
 public class RepasoUnidad3JaApplication implements CommandLineRunner {
-	@Autowired 
-	private IHotelService iHotelService;
 	@Autowired
-	private ILibroService iLibroService;
+	IEstudianteService iEstudianteService;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(RepasoUnidad3JaApplication.class, args);
 	}
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-//		Hotel hotel = new Hotel();
-//		hotel.setNombre("Hilton");
-//		hotel.setDireccion("Av Patria");
-//		hotel.setNombrePrimero("Hotel Hilton");
+
+//		Estudiante estu = new Estudiante();
+//		estu.setNombre("Jhonatan");
+//		estu.setApellido("Altamirano");
+//		estu.setCedula("1727501510");
+//		estu.setCiudad("Quito");
+//		estu.setPais("Ecuador");
+//		estu.setSalario(new BigDecimal(400));
+//		estu.setHobby("Dibujar");
+//		estu.setFechaNacimiento(LocalDateTime.of(2000, 03, 16, 13, 50));
+//		this.iEstudianteService.crear(estu);
+//	
+//		Estudiante estu1 = new Estudiante();
+//		estu1.setNombre("Grace");
+//		estu1.setApellido("Analuiza");
+//		estu1.setCedula("1727501511");
+//		estu1.setCiudad("Quito");
+//		estu1.setPais("Ecuador");
+//		estu1.setSalario(new BigDecimal(485));
+//		estu1.setHobby("Dibujar");
+//		estu1.setFechaNacimiento(LocalDateTime.of(1997, 03, 16, 13, 50));
+//		this.iEstudianteService.crear(estu1);
 //		
-//		List<Habitacion> habitaciones = new ArrayList<>();
-//		Habitacion habitacion = new Habitacion();
-//		habitacion.setNumero("A1");
-//		habitacion.setTipo("VIP");
-//		habitacion.setHotel(hotel);
-//		habitaciones.add(habitacion);
-//		
-//		Habitacion habitacion1 = new Habitacion();
-//		habitacion1.setNumero("A2");
-//		habitacion1.setTipo("VIP");
-//		habitacion1.setHotel(hotel);
-//		habitaciones.add(habitacion1);
-//		
-//		hotel.setHabitaciones(habitaciones);
-//		
-//		this.iHotelService.crear(hotel);
+//		Estudiante estu2 = new Estudiante();
+//		estu2.setNombre("Lenin");
+//		estu2.setApellido("Caroa");
+//		estu2.setCedula("1727501513");
+//		estu2.setCiudad("Quito");
+//		estu2.setPais("Ecuador");
+//		estu2.setSalario(new BigDecimal(600));
+//		estu2.setHobby("Dibujar");
+//		estu2.setFechaNacimiento(LocalDateTime.of(2005, 03, 16, 13, 50));
+//		this.iEstudianteService.crear(estu2);
 		
-		
-		List<Libro> libros= new ArrayList<>();
-		Libro libro = new Libro();
-		libro.setNombre("Analisis Numerico");
-		libro.setEditorial("Los Andes");
-		libros.add(libro);
-		
-		Libro libro1 = new Libro();
-		libro1.setNombre("Fisica Vectorial");
-		libro1.setEditorial("Pearson");
-		libros.add(libro1);
-//
-//		
-		List<Autor> autores = new ArrayList<>();
-		Autor autor = new Autor();
-		autor.setNombre("Galindo");
-		autores.add(autor);
-		Autor autor1 = new Autor();
-		autor1.setNombre("Lara");
-		autores.add(autor1);
-		libro.setAutores(autores);
-		autor1.setLibros(libros);
-		autor.setLibros(libros);
-		this.iLibroService.crear(libro);
-		this.iLibroService.crear(libro1);
-		
-		//Busqueda de habitaciones
-		Libro libro4 = this.iLibroService.buscar(2);
-		System.out.println(libro4);
-		for (Autor bh :autores ) {
-			System.out.println(bh.getNombre());
-		}
-		
+		System.out.println(this.iEstudianteService.buscarPorNombreQuery("Caroa"));
+		System.out.println("TypedQuery");
+		System.out.println(this.iEstudianteService.buscarPorNombreTypedQuery("Grace"));		
+		System.out.println("NamedQuery");
+		System.out.println(this.iEstudianteService.buscarPorCedulaNamedQuery("1727501510"));
+		System.out.println("combinado");
+		System.out.println(this.iEstudianteService.buscarPorNombreNamedQueryTyped("Lenin"));
+		System.out.println("NativeQuery");
+		System.out.println(this.iEstudianteService.buscarPorNombreNativeQuery("Lenin"));
+		System.out.println("Combinado Native Typed Named");
+		System.out.println(this.iEstudianteService.buscarPorNombreNativeQueryTypedNamed("Lenin"));		
 	}
 
 }
