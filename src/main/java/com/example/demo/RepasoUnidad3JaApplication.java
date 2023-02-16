@@ -69,6 +69,8 @@ public class RepasoUnidad3JaApplication implements CommandLineRunner {
 		System.out.println(this.iEstudianteService.buscarPorNombreNativeQuery("Lenin"));
 		System.out.println("Combinado Native Typed Named");
 		System.out.println(this.iEstudianteService.buscarPorNombreNativeQueryTypedNamed("Lenin"));		
+		System.out.println("DTO");
+		System.out.println(this.iEstudianteService.buscarPorNombreQueryTypedDTO("Lenin"));	
 	}
 
 }

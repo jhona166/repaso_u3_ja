@@ -3,6 +3,7 @@ package com.example.demo.uce.repository;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.uce.modelo.Estudiante;
+import com.example.demo.uce.modelo.DTO.EstudianteDTO;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -75,7 +76,19 @@ public class EstudianteRepoImpl implements IEstudianteRepo{
 		myQuery.setParameter("datoNombre", nombre);
 		return myQuery.getSingleResult();
 		
+	}
+
+	@Override
+	public EstudianteDTO buscarPorNombreQueryTypedDTO(String nombre) {
+		// TODO Auto-generated method stub
 		
+		TypedQuery<EstudianteDTO> myQuery = this.entityManager.
+			createQuery("SELECT new  com.example.demo.uce.modelo.DTO.EstudianteDTO(e.nombre,e.apellido,e.cedula) from Estudiante e where e.nombre=:datoNombre",EstudianteDTO.class);
+		myQuery.setParameter("datoNombre", nombre);
+		return myQuery.getSingleResult();
+				
+				
+				
 	}
 
 }
